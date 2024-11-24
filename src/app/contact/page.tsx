@@ -8,7 +8,7 @@ import { ChevronDown, MapPin, Phone, Mail, Clock, Send, Facebook, Instagram, Twi
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
+// import { useToast } from "@/hooks/use-toast"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -29,7 +29,7 @@ const formSchema = z.object({
 })
 
 export default function ContactPage() {
-  const { toast } = useToast()
+  // const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -70,17 +70,18 @@ export default function ContactPage() {
       console.log("Sending email to bizlog50@gmail.com:");
       console.log(emailContent);
 
-      toast({
+      /* toast({
         title: "Message Sent",
         description: "Your message has been sent to the restaurant. We'll get back to you soon.",
-      });
+      }); */
       form.reset();
     } catch (error) {
-      toast({
+      /* toast({
         title: "Error",
         description: "There was a problem sending your message. Please try again.",
         variant: "destructive",
-      });
+      }); */
+      console.log(error)
     } finally {
       setIsSubmitting(false);
     }

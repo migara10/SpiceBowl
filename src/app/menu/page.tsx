@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useToast } from "@/hooks/use-toast"
+// import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent } from "@/components/ui/card"
 
 interface MenuItem {
@@ -112,7 +112,7 @@ export default function Page() {
   const [mealType, setMealType] = useState("all")
   const [spiceLevel, setSpiceLevel] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
-  const { toast } = useToast()
+  // const { toast } = useToast()
 
   const addToCart = (item: MenuItem) => {
     const existingItem = cart.find((cartItem) => cartItem.id === item.id)
@@ -125,10 +125,10 @@ export default function Page() {
     } else {
       setCart([...cart, { ...item, quantity: 1 }])
     }
-    toast({
+    /* toast({
       title: "Added to cart",
       description: `${item.name} has been added to your cart.`,
-    })
+    }) */
   }
 
   const removeFromCart = (id: number) => {
@@ -149,10 +149,10 @@ export default function Page() {
 
   const handleCheckout = () => {
     // Placeholder for checkout logic
-    toast({
+    /* toast({
       title: "Order Placed",
       description: "Your order has been successfully placed!",
-    })
+    }) */
     setCart([])
     setIsCartOpen(false)
     setCheckoutStep(0)
